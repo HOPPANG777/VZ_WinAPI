@@ -155,6 +155,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Objects\Brick.cpp" />
+    <ClCompile Include="Objects\Ball.cpp" />
+    <ClCompile Include="Objects\Paddle.cpp" />
     <ClCompile Include="Systems\Input.cpp" />
     <ClCompile Include="Objects\Rect.cpp" />
     <ClCompile Include="Systems\Program.cpp" />
@@ -170,6 +173,9 @@
     <ClCompile Include="Systems\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Objects\Brick.h" />
+    <ClInclude Include="Objects\Ball.h" />
+    <ClInclude Include="Objects\Paddle.h" />
     <ClInclude Include="Systems\Input.h" />
     <ClInclude Include="Objects\Rect.h" />
     <ClInclude Include="Systems\Program.h" />

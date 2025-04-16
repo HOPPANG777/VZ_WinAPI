@@ -1,7 +1,18 @@
 #pragma once
 
-#include "Objects/Rect.h"
-#include "Input.h"
+#include "Objects/Paddle.h"
+#include "Objects/Ball.h"
+#include "Objects/Brick.h"
+
+#include "Systems/Input.h"
+#include "Systems/Time.h"
+
+#include "Utilities/Vector.h"
+#include "Utilities/APIFuncs.h"
+
+class Paddle;
+class Ball;
+class Brick;
 
 class Program
 {
@@ -10,12 +21,16 @@ public:
 	~Program();
 
 public:
-	void Update();
-	void Render();
+	void Update(float deltaTime, const RECT& windowRect);
+	void Render(HDC hdc);
 
 private:
-	std::unique_ptr<Rect> rect1;
-	std::unique_ptr<Rect> rect2;
+	std::unique_ptr<Paddle> paddle;
+	std::unique_ptr<Ball> ball;
+	std::vector<std::unique_ptr<Brick>> bricks;
+
+private:
+	void InitializeBricks();
 
 };
 
