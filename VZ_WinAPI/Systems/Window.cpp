@@ -116,7 +116,7 @@ LRESULT Window::WndProc(HWND handle, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		PAINTSTRUCT ps;
 		gHDC = BeginPaint(handle, &ps);
-		program->Render();
+		program->Render(gHDC);
 
 		EndPaint(handle, &ps);
 	}
@@ -148,7 +148,11 @@ LRESULT Window::WndProc(HWND handle, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		Input::Get()->Update();
 		Time::Get()->Update();
-		program->Update();
+
+		RECT clientRect;
+		GetClientRect(handle, &clientRect);
+		program->Update(Time::Get()->GetDeltaTime(), clientRect);
+		
 		InvalidateRect(handle, nullptr, true);
 		UpdateWindow(handle);
 	}	
