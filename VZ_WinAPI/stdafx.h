@@ -22,8 +22,6 @@
 #include <memory>
 #include <array>
 
-//using namespace std;
-
 #define WIN_DEFAULT_WIDTH 1280
 #define WIN_DEFAULT_HEIGHT 720
 
@@ -52,21 +50,3 @@ extern float gWinWidth;
 extern float gWinHeight;
 extern HWND gHandle;
 extern HDC gHDC;
-
-
-// Utilities
-//#include "Utilities/APIFuncs.h"
-//#include "Utilities/Vector.h"
-
-
-// Systems
-//#include "Systems/Input.h"
-//#include "Systems/Time.h"
-//#include "Systems/Program.h"
-
-//#define INPUT Input::Get()
-//#define TIME Time::Get()
-//#define DELTA Time::Get()->GetDeltaTime()
-
-// Object
-//#include "Rect.h"
