@@ -6,7 +6,7 @@
 class Ball
 {
 public:
-    Ball(const Vector2& pos, const Vector2& vel, float radius, COLORREF color = RGB(255, 255, 255))
+    Ball(const Vector2& pos, const Vector2& vel, float radius, COLORREF color = RGB(0, 0, 0))
         : position(pos), velocity(vel), radius(radius)
     {
         ballBrush = CreateSolidBrush(color);

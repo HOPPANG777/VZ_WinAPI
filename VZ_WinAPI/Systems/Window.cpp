@@ -68,7 +68,7 @@ ATOM Window::MyRegisterClass(const WinDesc& desc)
 	wcex.hInstance = desc.instance;
 	wcex.hIcon = LoadIcon(nullptr, IDI_WINLOGO);
 	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
-	wcex.hbrBackground = HBRUSH(GetStockObject(GRAY_BRUSH));
+	wcex.hbrBackground = HBRUSH(GetStockObject(WHITE_BRUSH));
 	wcex.lpszMenuName = nullptr;
 	wcex.lpszClassName = desc.appName.c_str();
 	wcex.hIconSm = wcex.hIcon;

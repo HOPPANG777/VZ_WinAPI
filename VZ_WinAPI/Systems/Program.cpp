@@ -11,7 +11,7 @@ Program::Program()
     paddle = std::make_unique<Paddle>(Vector2(CENTER_X, WIN_DEFAULT_HEIGHT - 50), Vector2(150, 20), RGB(0, 255, 0));
     
     // 공을 화면 중앙에 배치, 초기 속도 설정
-    ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(255,255,255));
+    ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(0, 0, 0));
     
     InitializeBricks();
 }
@@ -66,7 +66,7 @@ void Program::Update(float deltaTime, const RECT& windowRect)
     if (ball->GetPosition().y - ball->GetRadius() > windowRect.bottom)
     {
         // 예시로, 공을 화면 중앙으로 재배치
-        ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(255,255,255));
+        ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(0, 0, 0));
     }
 }
 
