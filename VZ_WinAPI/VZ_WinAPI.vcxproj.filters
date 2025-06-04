@@ -66,6 +66,7 @@
     <ClInclude Include="Objects\Paddle.h">
       <Filter>Objects\BrickOut</Filter>
     </ClInclude>
+    <ClInclude Include="Objects\GameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Systems">

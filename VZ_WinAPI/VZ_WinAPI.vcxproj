@@ -175,6 +175,7 @@
   <ItemGroup>
     <ClInclude Include="Objects\Brick.h" />
     <ClInclude Include="Objects\Ball.h" />
+    <ClInclude Include="Objects\GameObject.h" />
     <ClInclude Include="Objects\Paddle.h" />
     <ClInclude Include="Systems\Input.h" />
     <ClInclude Include="Objects\Rect.h" />
