@@ -18,9 +18,6 @@
     <ClCompile Include="Systems\Window.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\Rect.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Objects\Brick.cpp">
       <Filter>Objects\BrickOut</Filter>
     </ClCompile>
@@ -29,6 +26,9 @@
     </ClCompile>
     <ClCompile Include="Objects\Ball.cpp">
       <Filter>Objects\BrickOut</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Rect.cpp">
+      <Filter>Objects\Rect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,9 +54,6 @@
     <ClInclude Include="Systems\Window.h">
       <Filter>Systems</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\Rect.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Objects\Ball.h">
       <Filter>Objects\BrickOut</Filter>
     </ClInclude>
@@ -66,7 +63,12 @@
     <ClInclude Include="Objects\Paddle.h">
       <Filter>Objects\BrickOut</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\GameObject.h" />
+    <ClInclude Include="Objects\Object.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Rect.h">
+      <Filter>Objects\Rect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Systems">
@@ -80,6 +82,9 @@
     </Filter>
     <Filter Include="Objects\BrickOut">
       <UniqueIdentifier>{9db0b19f-0647-4d30-86e1-2019de635191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Rect">
+      <UniqueIdentifier>{6291337d-564f-4cc7-beaf-bcaf6bd920c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

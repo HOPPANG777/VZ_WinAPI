@@ -2,7 +2,7 @@
 #include "Paddle.h"
 
 
-void Paddle::Update(float deltaTime)
+void Paddle::Update(float deltaTime, const RECT&)
 {
     if (Input::Get()->Press(VK_LEFT)) position.x -= speed * deltaTime;
     if (Input::Get()->Press(VK_RIGHT)) position.x += speed * deltaTime;

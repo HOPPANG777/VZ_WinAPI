@@ -3,8 +3,9 @@
 #include "Utilities/Vector.h"
 #include "Utilities/APIFuncs.h"
 #include "Systems/Input.h"
+#include "Object.h"
 
-class Paddle
+class Paddle : public Object
 {
 public:
     Paddle(const Vector2& pos, const Vector2& size, COLORREF color = RGB(0, 255, 0))
@@ -19,8 +20,8 @@ public:
     }
 
 public:
-    void Update(float deltaTime);
-    void Render(HDC hdc);
+    void Update(float deltaTime, const RECT& windowRect) override;
+    void Render(HDC hdc) override;
 
 public:
     const RECT& GetRect() const { return rect; }

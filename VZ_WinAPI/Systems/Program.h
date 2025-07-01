@@ -29,6 +29,9 @@ private:
 	std::unique_ptr<Ball> ball;
 	std::vector<std::unique_ptr<Brick>> bricks;
 
+	int score = 0;
+	int lives = 3;
+
 private:
 	void InitializeBricks();
 
