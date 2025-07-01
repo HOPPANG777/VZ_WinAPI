@@ -2,12 +2,12 @@
 #include "Paddle.h"
 
 
-void Paddle::Update(float deltaTime)
+void Paddle::Update(float deltaTime, const RECT&)
 {
     if (Input::Get()->Press(VK_LEFT)) position.x -= speed * deltaTime;
     if (Input::Get()->Press(VK_RIGHT)) position.x += speed * deltaTime;
 
-    // ÇÊ¿ä¿¡ µû¶ó È­¸é °æ°è Ã¼Å©¸¦ Ãß°¡ÇÏ¼¼¿ä.
+    // í•„ìš”ì— ë”°ë¼ í™”ë©´ ê²½ê³„ ì²´í¬ë¥¼ ì¶”ê°€í•˜ì„¸ìš”.
 
     APIFuncs::SetRectCentered(position, size, rect);
 }
