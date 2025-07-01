@@ -16,6 +16,13 @@ class Brick;
 
 class Program
 {
+	enum class GameState
+	{
+		GAME_PLAYING = 0,
+		GAME_OVER,
+		GAME_CLEAR
+	};
+
 public:
 	Program();
 	~Program();
@@ -31,6 +38,11 @@ private:
 
 	int score = 0;
 	int lives = 3;
+
+	GameState gameState = GameState::GAME_PLAYING;
+
+private:
+	void ResetGame();
 
 private:
 	void InitializeBricks();
