@@ -3,9 +3,8 @@
 #include "Utilities/Vector.h"
 #include "Utilities/APIFuncs.h"
 #include "Systems/Input.h"
-#include "GameObject.h"
 
-class Paddle : public GameObject
+class Paddle
 {
 public:
     Paddle(const Vector2& pos, const Vector2& size, COLORREF color = RGB(0, 255, 0))
@@ -20,8 +19,8 @@ public:
     }
 
 public:
-    void Update(float deltaTime, const RECT& windowRect) override;
-    void Render(HDC hdc) override;
+    void Update(float deltaTime);
+    void Render(HDC hdc);
 
 public:
     const RECT& GetRect() const { return rect; }
@@ -33,5 +32,5 @@ private:
     RECT rect = { 0 };
     HBRUSH rectBrush = nullptr;
     
-    float speed = 500.0f; // ÀÌµ¿ ¼Óµµ
+    float speed = 500.0f; // �̵� �ӵ�
 };

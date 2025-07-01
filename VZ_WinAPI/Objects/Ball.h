@@ -2,9 +2,8 @@
 
 #include "Utilities/Vector.h"
 #include "Utilities/APIFuncs.h"
-#include "GameObject.h"
 
-class Ball : public GameObject
+class Ball
 {
 public:
     Ball(const Vector2& pos, const Vector2& vel, float radius, COLORREF color = RGB(0, 0, 0))
@@ -18,8 +17,8 @@ public:
     }
 
 public:
-    void Update(float deltaTime, const RECT& windowRect) override;
-    void Render(HDC hdc) override;
+    void Update(float deltaTime, const RECT& windowRect);
+    void Render(HDC hdc);
 
 public:
     const Vector2& GetPosition() const { return position; }

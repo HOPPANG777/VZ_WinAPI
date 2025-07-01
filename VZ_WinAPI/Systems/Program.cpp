@@ -7,28 +7,11 @@
 
 Program::Program()
 {
-    const int totalWidth = cols * brickWidth + (cols - 1) * spacing;
-    const int offsetX = (WIN_DEFAULT_WIDTH - totalWidth) / 2;
-    paddle->Update(deltaTime, windowRect);
-            score += 100;
-    // Í≥µÏù¥ ÌôîÎ©¥ ÏïÑÎûòÎ°ú Îñ®Ïñ¥ÏßÄÎ©¥ Î™©Ïà®ÏùÑ Ï∞®Í∞êÌïòÍ≥† Ïû¨Î∞∞Ïπò
-        --lives;
-        if (lives > 0)
-        {
-            ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(0, 0, 0));
-            paddle = std::make_unique<Paddle>(Vector2(CENTER_X, WIN_DEFAULT_HEIGHT - 50), Vector2(150, 20), RGB(0,255,0));
-        }
-        else
-        {
-            lives = 3;
-            score = 0;
-            bricks.clear();
-            InitializeBricks();
-            ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(0, 0, 0));
-            paddle = std::make_unique<Paddle>(Vector2(CENTER_X, WIN_DEFAULT_HEIGHT - 50), Vector2(150, 20), RGB(0,255,0));
-        }
-    std::wstring info = L"Score: " + std::to_wstring(score) + L" Lives: " + std::to_wstring(lives);
-    TextOutW(hdc, 10, 10, info.c_str(), info.size());
+    // ∆–µÈ¿ª »≠∏È «œ¥‹ ¡ﬂæ”ø° πËƒ° (øπ: »≠∏È ≥Ù¿Ã¿« 50«»ºø ¿ß)
+    paddle = std::make_unique<Paddle>(Vector2(CENTER_X, WIN_DEFAULT_HEIGHT - 50), Vector2(150, 20), RGB(0, 255, 0));
+    
+    // ∞¯¿ª »≠∏È ¡ﬂæ”ø° πËƒ°, √ ±‚ º”µµ º≥¡§
+    ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(0, 0, 0));
     
     InitializeBricks();
 }
@@ -62,27 +45,27 @@ void Program::Update(float deltaTime, const RECT& windowRect)
     paddle->Update(deltaTime);
     ball->Update(deltaTime, windowRect);
 
-    // Ìå®Îì§Í≥º Í≥µÏùò Ï∂©Îèå Ï≤¥ÌÅ¨
+    // ∆–µÈ∞˙ ∞¯¿« √Êµπ √º≈©
     if (ball->CheckCollision(paddle->GetRect()))
     {
         ball->ReflectVertical();
     }
 
-    // Î≤ΩÎèåÍ≥º Í≥µÏùò Ï∂©Îèå Ï≤¥ÌÅ¨
+    // ∫Æµπ∞˙ ∞¯¿« √Êµπ √º≈©
     for (auto& brick : bricks)
     {
         if (brick->IsActive() && ball->CheckCollision(brick->GetRect()))
         {
             brick->Destroy();
             ball->ReflectVertical();
-            break; // Ìïú ÌîÑÎ†àÏûÑÏóê Ìïú Î≤ΩÎèåÎßå Ï≤òÎ¶¨
+            break; // «— «¡∑π¿”ø° «— ∫Æµπ∏∏ √≥∏Æ
         }
     }
 
-    // Í≥µÏù¥ ÏïÑÎûòÎ°ú Îñ®Ïñ¥ÏßÄÎ©¥ (Ïòà: windowRect.bottom ÎÑòÏñ¥Í∞ÄÎ©¥) Í≤åÏûÑ Ïò§Î≤Ñ Ï≤òÎ¶¨ ÎòêÎäî Í≥µ Ï¥àÍ∏∞Ìôî
+    // ∞¯¿Ã æ∆∑°∑Œ ∂≥æÓ¡ˆ∏È (øπ: windowRect.bottom ≥—æÓ∞°∏È) ∞‘¿” ø¿πˆ √≥∏Æ ∂«¥¬ ∞¯ √ ±‚»≠
     if (ball->GetPosition().y - ball->GetRadius() > windowRect.bottom)
     {
-        // ÏòàÏãúÎ°ú, Í≥µÏùÑ ÌôîÎ©¥ Ï§ëÏïôÏúºÎ°ú Ïû¨Î∞∞Ïπò
+        // øπΩ√∑Œ, ∞¯¿ª »≠∏È ¡ﬂæ”¿∏∑Œ ¿ÁπËƒ°
         ball = std::make_unique<Ball>(CENTER, Vector2(200.0f, -200.0f), 10, RGB(0, 0, 0));
     }
 }

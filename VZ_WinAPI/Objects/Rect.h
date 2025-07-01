@@ -2,9 +2,8 @@
 
 #include "Utilities/APIFuncs.h"
 #include "Systems/Time.h"
-#include "GameObject.h"
 
-class Rect : public GameObject
+class Rect
 {
 public:
 	Rect() : Rect(Vector2(), Vector2(100, 100)) {}
@@ -16,8 +15,8 @@ public:
 	}
 
 public:
-	void Update(float deltaTime, const RECT& windowRect) override;
-	void Render(HDC hdc) override;
+	void Update();
+	void Render();
 
 public:
 	void Move(const Vector2& position) { this->position += position * Time::Get()->GetDeltaTime(); }

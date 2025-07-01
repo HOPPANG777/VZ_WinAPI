@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Rect.h"
 
-void Rect::Update(float, const RECT&)
+void Rect::Update()
 {
 	if (keyCount == 2) speed = maxSpeed / sqrtf(2.0f);
 	else speed = maxSpeed;
@@ -9,10 +9,10 @@ void Rect::Update(float, const RECT&)
 	APIFuncs::SetRectCentered(position, scale, rect);
 }
 
-void Rect::Render(HDC hdc)
+void Rect::Render()
 {
-	APIFuncs::DrawRect(hdc, rect);
-	FillRect(hdc, &rect, brush);
+	APIFuncs::DrawRect(gHDC, rect);
+	FillRect(gHDC, &rect, brush);
 }
 
 bool Rect::CheckIntersect(const Rect& other) const

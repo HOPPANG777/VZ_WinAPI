@@ -2,9 +2,8 @@
 
 #include "Utilities/Vector.h"
 #include "Utilities/APIFuncs.h"
-#include "GameObject.h"
 
-class Brick : public GameObject
+class Brick
 {
 public:
     Brick(const Vector2& pos, const Vector2& size, COLORREF color = RGB(255, 0, 0))
@@ -19,8 +18,8 @@ public:
     }
 
 public:
-    void Update(float deltaTime, const RECT& windowRect) override;
-    void Render(HDC hdc) override;
+    void Update(float deltaTime);
+    void Render(HDC hdc);
 
 public:
     bool IsActive() const { return active; }
